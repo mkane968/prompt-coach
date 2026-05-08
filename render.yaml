@@ -1,0 +1,14 @@
+# Render Blueprint — after connect, set ANTHROPIC_API_KEY in the dashboard (Environment).
+services:
+  - type: web
+    name: prompt-coach
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: ANTHROPIC_API_KEY
+        sync: false
