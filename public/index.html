@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Prompt Quality Coach</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;1,9..40,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="layout">
+      <header class="tool-header">
+        <h1>Prompt Quality Coach</h1>
+        <p>
+          Your prompt gets a strength score (Weak / Moderate / Strong). Use the feedback to sharpen how you ask.
+          When it’s strong enough, you’ll also see a direct answer below.
+        </p>
+      </header>
+
+      <form id="form" class="panel" autocomplete="off">
+        <h2>Your Prompt</h2>
+        <textarea
+          id="question"
+          name="question"
+          placeholder="Example: How do I fix my knee pain?"
+          required
+        ></textarea>
+
+        <div class="btn-row">
+          <button type="submit" id="submitBtn">Rate Prompt</button>
+        </div>
+      </form>
+
+      <section class="panel strength-panel" id="strengthMeter" hidden>
+        <h2>Prompt Strength</h2>
+        <div class="strength-meter" role="img" aria-label="Prompt strength score">
+          <div class="strength-meter-head">
+            <span id="strengthPct" class="strength-pct" aria-hidden="true">—%</span>
+            <span id="strengthLabel" class="strength-label">—</span>
+          </div>
+          <div class="strength-track-wrap">
+            <div class="strength-marker-line">
+              <div class="strength-marker-notch"></div>
+            </div>
+            <div class="strength-track"></div>
+          </div>
+        </div>
+        <p id="gateHint" class="gate-hint"></p>
+        <p id="lockedLine" class="locked-line" hidden>
+          Keep improving how you ask using the feedback below — when your score is strong enough, a direct answer will appear here.
+        </p>
+      </section>
+
+      <section class="panel">
+        <h2>Feedback</h2>
+        <div id="output" class="output">Your analysis will appear here.</div>
+        <div class="meta-grid">
+          <div class="meta-item">
+            <span>Specificity</span>
+            <strong id="metaSpec">—</strong>
+          </div>
+          <div class="meta-item">
+            <span>Expertise Level</span>
+            <strong id="metaExp">—</strong>
+          </div>
+          <div class="meta-item">
+            <span>AI Fit</span>
+            <strong id="metaAi">—</strong>
+          </div>
+          <div class="meta-item meta-full-row">
+            <span>Better to Ask</span>
+            <strong id="metaAsk">—</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel answer-panel" id="answerPanel" hidden>
+        <h2>Answer</h2>
+        <div id="answerOutput" class="output answer-output"></div>
+      </section>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "prompt-coach",
+  "private": true,
+  "description": "Prompt Quality Coach — UI with a tiny API proxy",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0"
+  }
+}
